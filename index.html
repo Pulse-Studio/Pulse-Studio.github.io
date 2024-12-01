@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Studio - Game Development</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Навигация -->
+    <nav class="fixed w-full bg-gray-900 bg-opacity-90 z-50 px-4 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold">🎮 Pulse Studio</div>
+            <div class="space-x-6">
+                <a href="#about" class="hover:text-purple-400 transition">О нас</a>
+                <a href="#team" class="hover:text-purple-400 transition">Команда</a>
+                <a href="#projects" class="hover:text-purple-400 transition">Проекты</a>
+                <a href="#contact" class="hover:text-purple-400 transition">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-purple-900 to-gray-900 opacity-50"></div>
+        <div class="z-10 px-4" data-aos="fade-up">
+            <h1 class="text-6xl font-bold mb-6">Создаем игровые миры</h1>
+            <p class="text-xl mb-8 text-gray-300">Indie game studio с фокусом на инновационный геймплей</p>
+            <a href="#projects" class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full text-lg transition">
+                Наши проекты
+            </a>
+        </div>
+    </section>
+
+    <!-- О нас -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">О нас</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4">💡 Инновации</h3>
+                    <p>Создаем уникальные игровые механики и незабываемые впечатления</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-4">🎯 Качество</h3>
+                    <p>Внимание к деталям и высокие стандарты разработки</p>
+                </div>
+                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4">🤝 Сообщество</h3>
+                    <p>Открытое взаимодействие с игроками и разработчиками</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Команда -->
+    <section id="team" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Наша команда</h2>
+            <div class="grid md:grid-cols-5 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/api/placeholder/150/150" alt="SAKS" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold">SAKS</h3>
+                    <p class="text-gray-400">Гейм-дизайнер</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/api/placeholder/150/150" alt="Shifty" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold">Shifty</h3>
+                    <p class="text-gray-400">Архитектор</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/api/placeholder/150/150" alt="clw" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold">clw</h3>
+                    <p class="text-gray-400">UI/UX дизайнер</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <img src="/api/placeholder/150/150" alt="Zhuk" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold">Zhuk</h3>
+                    <p class="text-gray-400">Геймплей программист</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                    <img src="/api/placeholder/150/150" alt="Svinopesik" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-bold">Svinopesik</h3>
+                    <p class="text-gray-400">Графический программист</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Наши проекты</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-700 rounded-lg overflow-hidden" data-aos="fade-up">
+                    <img src="/api/placeholder/800/400" alt="DiceQuest" class="w-full">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4">DiceQuest</h3>
+                        <p class="mb-4">Рогалик с использованием игральных костей в стиле Balatro. Комбинируйте броски, создавайте уникальные стратегии и погружайтесь в мир случайности и тактики.</p>
+                        <div class="flex space-x-4">
+                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">Рогалик</span>
+                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">Godot Engine</span>
+                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">В разработке</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12" data-aos="fade-up">Свяжитесь с нами</h2>
+            <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+                <a href="#" class="hover:text-purple-400 transition">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+                <a href="#" class="hover:text-purple-400 transition">
+                    <i class="fab fa-discord text-3xl"></i>
+                </a>
+                <a href="#" class="hover:text-purple-400 transition">
+                    <i class="fab fa-twitter text-3xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400" data-aos="fade-up" data-aos-delay="200">
+                Email: pulseteam@example.com
+            </p>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>© 2023 Pulse Studio. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
