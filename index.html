@@ -54,9 +54,20 @@
         .grid-background {
             background-size: 50px 50px;
             background-image: 
-                linear-gradient(to right, rgba(255, 0, 0, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 0, 0, 0.03) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 0, 0, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 0, 0, 0.08) 1px, transparent 1px);
             animation: gridMove 30s linear infinite;
+        }
+
+        .grid-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 0, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hover-glow:hover {
@@ -85,10 +96,10 @@
                 <img src="logo.png" alt="Pulse Studio" class="pulse-logo">
             </div>
             <div class="space-x-6">
-                <a href="#about" class="hover:text-red-500 transition duration-300">О нас</a>
-                <a href="#team" class="hover:text-red-500 transition duration-300">Команда</a>
-                <a href="#projects" class="hover:text-red-500 transition duration-300">Проекты</a>
-                <a href="#contact" class="hover:text-red-500 transition duration-300">Контакты</a>
+                <a href="#about" class="text-lg font-medium text-gray-100 hover:text-red-400 transition duration-300">О нас</a>
+                <a href="#team" class="text-lg font-medium text-gray-100 hover:text-red-400 transition duration-300">Команда</a>
+                <a href="#projects" class="text-lg font-medium text-gray-100 hover:text-red-400 transition duration-300">Проекты</a>
+                <a href="#contact" class="text-lg font-medium text-gray-100 hover:text-red-400 transition duration-300">Контакты</a>
             </div>
         </div>
     </nav>
