@@ -7,82 +7,153 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-secondary: #141414;
+            --dark-accent: #1a1a1a;
+            --crimson-accent: #2d0808;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+        }
+
+        .bg-dark-custom {
+            background-color: var(--dark-bg);
+        }
+
+        .bg-dark-secondary {
+            background-color: var(--dark-secondary);
+        }
+
+        .bg-dark-accent {
+            background-color: var(--dark-accent);
+        }
+
+        .bg-crimson-accent {
+            background-color: var(--crimson-accent);
+        }
+
+        .pulse-logo {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.2));
+        }
+
+        .interactive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .grid-background {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 0, 0, 0.03) 1px, transparent 1px);
+            animation: gridMove 30s linear infinite;
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        .card-gradient {
+            background: linear-gradient(145deg, var(--dark-secondary), var(--dark-accent));
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body>
+    <div class="interactive-bg grid-background"></div>
+
     <!-- Навигация -->
-    <nav class="fixed w-full bg-gray-900 bg-opacity-90 z-50 px-4 py-4">
+    <nav class="fixed w-full bg-dark-custom bg-opacity-95 z-50 px-4 py-4 border-b border-red-900 border-opacity-20">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold">🎮 Pulse Studio</div>
+            <div class="flex items-center">
+                <img src="/api/placeholder/150/80" alt="Pulse Studio" class="pulse-logo">
+            </div>
             <div class="space-x-6">
-                <a href="#about" class="hover:text-purple-400 transition">О нас</a>
-                <a href="#team" class="hover:text-purple-400 transition">Команда</a>
-                <a href="#projects" class="hover:text-purple-400 transition">Проекты</a>
-                <a href="#contact" class="hover:text-purple-400 transition">Контакты</a>
+                <a href="#about" class="hover:text-red-500 transition duration-300">О нас</a>
+                <a href="#team" class="hover:text-red-500 transition duration-300">Команда</a>
+                <a href="#projects" class="hover:text-red-500 transition duration-300">Проекты</a>
+                <a href="#contact" class="hover:text-red-500 transition duration-300">Контакты</a>
             </div>
         </div>
     </nav>
 
     <!-- Герой секция -->
     <section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-purple-900 to-gray-900 opacity-50"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-crimson-accent to-dark-bg opacity-30"></div>
         <div class="z-10 px-4" data-aos="fade-up">
-            <h1 class="text-6xl font-bold mb-6">Создаем игровые миры</h1>
+            <h1 class="text-6xl font-bold mb-6 text-white">Создаем игровые миры</h1>
             <p class="text-xl mb-8 text-gray-300">Indie game studio с фокусом на инновационный геймплей</p>
-            <a href="#projects" class="bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-full text-lg transition">
+            <a href="#projects" class="bg-red-900 hover:bg-red-800 px-8 py-3 rounded-full text-lg transition duration-300 hover-glow">
                 Наши проекты
             </a>
         </div>
     </section>
 
     <!-- О нас -->
-    <section id="about" class="py-20 bg-gray-800">
+    <section id="about" class="py-20 bg-dark-secondary">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">О нас</h2>
+            <h2 class="text-4xl font-bold mb-12 text-center text-white" data-aos="fade-up">О нас</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold mb-4">💡 Инновации</h3>
-                    <p>Создаем уникальные игровые механики и незабываемые впечатления</p>
+                <div class="card-gradient p-6 rounded-lg hover-glow" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold mb-4 text-red-400">💡 Инновации</h3>
+                    <p class="text-gray-300">Создаем уникальные игровые механики и незабываемые впечатления</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-bold mb-4">🎯 Качество</h3>
-                    <p>Внимание к деталям и высокие стандарты разработки</p>
+                <div class="card-gradient p-6 rounded-lg hover-glow" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-bold mb-4 text-red-400">🎯 Качество</h3>
+                    <p class="text-gray-300">Внимание к деталям и высокие стандарты разработки</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-2xl font-bold mb-4">🤝 Сообщество</h3>
-                    <p>Открытое взаимодействие с игроками и разработчиками</p>
+                <div class="card-gradient p-6 rounded-lg hover-glow" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold mb-4 text-red-400">🤝 Сообщество</h3>
+                    <p class="text-gray-300">Открытое взаимодействие с игроками и разработчиками</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Команда -->
-    <section id="team" class="py-20">
+    <section id="team" class="py-20 bg-dark-custom">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Наша команда</h2>
+            <h2 class="text-4xl font-bold mb-12 text-center text-white" data-aos="fade-up">Наша команда</h2>
             <div class="grid md:grid-cols-5 gap-8">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center hover-glow p-4 rounded-lg" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://github.com/Saksilia.png" alt="SAKS" class="rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-bold">SAKS</h3>
+                    <h3 class="text-xl font-bold text-red-400">SAKS</h3>
                     <p class="text-gray-400">Гейм-дизайнер</p>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center hover-glow p-4 rounded-lg" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://github.com/ShiftyX1.png" alt="Shifty" class="rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-bold">Shifty</h3>
+                    <h3 class="text-xl font-bold text-red-400">Shifty</h3>
                     <p class="text-gray-400">Архитектор</p>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center hover-glow p-4 rounded-lg" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://github.com/clw.png" alt="clw" class="rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-bold">clw</h3>
+                    <h3 class="text-xl font-bold text-red-400">clw</h3>
                     <p class="text-gray-400">UI/UX дизайнер</p>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-center hover-glow p-4 rounded-lg" data-aos="fade-up" data-aos-delay="400">
                     <img src="https://github.com/clw.png" alt="Zhuk" class="rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-bold">Zhuk</h3>
+                    <h3 class="text-xl font-bold text-red-400">Zhuk</h3>
                     <p class="text-gray-400">Геймплей программист</p>
                 </div>
-                <div class="text-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="text-center hover-glow p-4 rounded-lg" data-aos="fade-up" data-aos-delay="500">
                     <img src="https://github.com/Svinopesik.png" alt="Svinopesik" class="rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-bold">Svinopesik</h3>
+                    <h3 class="text-xl font-bold text-red-400">Svinopesik</h3>
                     <p class="text-gray-400">Графический программист</p>
                 </div>
             </div>
@@ -90,19 +161,19 @@
     </section>
 
     <!-- Проекты -->
-    <section id="projects" class="py-20 bg-gray-800">
+    <section id="projects" class="py-20 bg-dark-secondary">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Наши проекты</h2>
+            <h2 class="text-4xl font-bold mb-12 text-center text-white" data-aos="fade-up">Наши проекты</h2>
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-700 rounded-lg overflow-hidden" data-aos="fade-up">
+                <div class="card-gradient rounded-lg overflow-hidden hover-glow" data-aos="fade-up">
                     <img src="/api/placeholder/800/400" alt="DiceQuest" class="w-full">
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold mb-4">DiceQuest</h3>
-                        <p class="mb-4">Рогалик с использованием игральных костей в стиле Balatro. Комбинируйте броски, создавайте уникальные стратегии и погружайтесь в мир случайности и тактики.</p>
+                        <h3 class="text-2xl font-bold mb-4 text-red-400">DiceQuest</h3>
+                        <p class="mb-4 text-gray-300">Рогалик с использованием игральных костей в стиле Balatro. Комбинируйте броски, создавайте уникальные стратегии и погружайтесь в мир случайности и тактики.</p>
                         <div class="flex space-x-4">
-                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">Рогалик</span>
-                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">Godot Engine</span>
-                            <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">В разработке</span>
+                            <span class="bg-red-900 bg-opacity-50 px-3 py-1 rounded-full text-sm text-gray-200">Рогалик</span>
+                            <span class="bg-red-900 bg-opacity-50 px-3 py-1 rounded-full text-sm text-gray-200">Godot Engine</span>
+                            <span class="bg-red-900 bg-opacity-50 px-3 py-1 rounded-full text-sm text-gray-200">В разработке</span>
                         </div>
                     </div>
                 </div>
@@ -111,17 +182,17 @@
     </section>
 
     <!-- Контакты -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 bg-dark-custom">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-12" data-aos="fade-up">Свяжитесь с нами</h2>
+            <h2 class="text-4xl font-bold mb-12 text-white" data-aos="fade-up">Свяжитесь с нами</h2>
             <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
-                <a href="#" class="hover:text-purple-400 transition">
+                <a href="#" class="hover:text-red-500 transition duration-300">
                     <i class="fab fa-github text-3xl"></i>
                 </a>
-                <a href="#" class="hover:text-purple-400 transition">
+                <a href="#" class="hover:text-red-500 transition duration-300">
                     <i class="fab fa-discord text-3xl"></i>
                 </a>
-                <a href="#" class="hover:text-purple-400 transition">
+                <a href="#" class="hover:text-red-500 transition duration-300">
                     <i class="fab fa-twitter text-3xl"></i>
                 </a>
             </div>
@@ -132,7 +203,7 @@
     </section>
 
     <!-- Футер -->
-    <footer class="bg-gray-800 py-8">
+    <footer class="bg-dark-secondary py-8">
         <div class="container mx-auto px-4 text-center text-gray-400">
             <p>© 2023 Pulse Studio. Все права защищены.</p>
         </div>
@@ -142,6 +213,15 @@
         AOS.init({
             duration: 1000,
             once: true
+        });
+
+        // Interactive background effect
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelector('.interactive-bg').style.transform = 
+                `translate(${x * 20}px, ${y * 20}px) scale(1.1)`;
         });
     </script>
 </body>
