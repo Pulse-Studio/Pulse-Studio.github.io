@@ -85,6 +85,27 @@
         .card-gradient {
             background: linear-gradient(145deg, var(--dark-secondary), var(--dark-accent));
         }
+
+        .hero-text {
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8),
+                             0 0 30px rgba(255, 0, 0, 0.6);
+            }
+        }
     </style>
 </head>
 <body>
@@ -105,12 +126,27 @@
         </div>
     </nav>
 
-    <!-- Герой секция -->
+    <!-- Обновленная hero секция -->
     <section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-crimson-accent to-dark-bg opacity-30"></div>
         <div class="z-10 px-4" data-aos="fade-up">
-            <h1 class="text-6xl font-bold mb-6 text-white">Создаем игровые миры</h1>
-            <p class="text-xl mb-8 text-gray-300">Indie game studio с фокусом на инновационный геймплей</p>
+            <div class="text-6xl font-bold mb-6 text-white">
+                <div class="hero-text-container relative h-24"> <!-- Контейнер для текстовой анимации -->
+                    <div class="hero-text absolute w-full transition-opacity duration-500">
+                        Создаем <span class="text-red-500 font-extrabold">миры</span>
+                    </div>
+                    <div class="hero-text absolute w-full opacity-0 transition-opacity duration-500">
+                        Создаем <span class="text-red-500 font-extrabold">незабываемый опыт</span>
+                    </div>
+                    <div class="hero-text absolute w-full opacity-0 transition-opacity duration-500">
+                        Создаем <span class="text-red-500 font-extrabold">мечты</span>
+                    </div>
+                    <div class="hero-text absolute w-full opacity-0 transition-opacity duration-500">
+                        <span class="text-red-500 font-extrabold glow-text">Мы делаем игры :3</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xl mb-8 text-gray-300">Игровая инди студия с фокусом на инновационный геймплей</p>
             <a href="#projects" class="bg-red-900 hover:bg-red-800 px-8 py-3 rounded-full text-lg transition duration-300 hover-glow">
                 Наши проекты
             </a>
@@ -235,6 +271,30 @@
             document.querySelector('.interactive-bg').style.transform = 
                 `translate(${x * 20}px, ${y * 20}px) scale(1.1)`;
         });
+
+        const heroTexts = document.querySelectorAll('.hero-text');
+        let currentText = 0;
+
+        function changeHeroText() {
+            // Скрыть текущий текст
+            heroTexts[currentText].style.opacity = '0';
+    
+            // Перейти к следующему тексту
+            currentText = (currentText + 1) % heroTexts.length;
+    
+        // Показать следующий текст
+            setTimeout(() => {
+                heroTexts.forEach(text => text.style.opacity = '0');
+                heroTexts[currentText].style.opacity = '1';
+            }, 500);
+        }
+
+    // Инициализация
+        heroTexts[0].style.opacity = '1';
+
+    // Запуск смены текста каждые 3 секунды
+        setInterval(changeHeroText, 3000);
+
     </script>
 </body>
 </html>
