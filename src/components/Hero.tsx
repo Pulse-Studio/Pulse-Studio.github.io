@@ -2,6 +2,8 @@ import { FC, useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HeroContent } from '../types/content';
+import InteractiveParticles from './InteractiveParticles';
+import MousePulse from './MousePulse';
 
 interface HeroProps {
   content: HeroContent;
@@ -172,6 +174,10 @@ export const Hero: FC<HeroProps> = ({ content }) => {
       {/* Анимированный фон */}
       <FluidBackground />
       
+      {/* TODO: Interactive Particles Layer 
+      <InteractiveParticles />
+      <MousePulse />
+      */}
       {/* Градиентный оверлей */}
       <motion.div 
         className="absolute inset-0 bg-gradient-to-b from-red-900/20 to-dark-bg"

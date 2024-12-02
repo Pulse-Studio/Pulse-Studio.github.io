@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projectsContent } from '../data/content';
@@ -6,6 +6,16 @@ import { projectsContent } from '../data/content';
 export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = projectsContent.projects.find(p => p.id === id);
+
+  useEffect(() => {
+    if (project) {
+      document.title = `${project.title} - Pulse Studio`;
+      
+      return () => {
+        document.title = `Pulse Studio`;
+      };
+    }
+  }, [project]);
 
   if (!project) {
     return (
