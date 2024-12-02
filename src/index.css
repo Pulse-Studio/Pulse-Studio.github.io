@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover-glow {
+  @apply transition-all duration-300;
+}
+
+.hover-glow:hover {
+  @apply shadow-lg shadow-red-500/50;
+}
+
+.card-gradient {
+  @apply bg-gradient-to-br from-dark-custom to-dark-secondary;
+}
