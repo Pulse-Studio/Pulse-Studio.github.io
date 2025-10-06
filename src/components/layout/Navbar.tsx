@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { NavItem } from '../../types';
 
 const navItems: NavItem[] = [
@@ -46,11 +46,11 @@ const Navbar: FC = () => {
             <Link
               key={item.id}
               to={item.path}
-              className="text-lg font-medium text-gray-100 hover:text-red-400 transition-all duration-300 relative group"
+              className="text-lg font-medium text-gray-100 hover:text-white transition-all duration-300 relative group"
             >
               {item.label}
               <motion.span
-                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 group-hover:w-full transition-all duration-300"
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white/60 group-hover:w-full transition-all duration-300"
                 initial={false}
                 animate={{ width: "0%" }}
                 whileHover={{ width: "100%" }}

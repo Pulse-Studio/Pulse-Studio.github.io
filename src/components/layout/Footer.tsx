@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { FooterContent } from '../../types/footer';
-import { Icons } from 'lucide-react';
 
 interface FooterProps {
   content: FooterContent;
@@ -24,7 +23,7 @@ const Footer: FC<FooterProps> = ({ content }) => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-red-400 transition duration-300"
+                  className="text-gray-400 hover:text-gray-100 transition duration-300"
                   aria-label={social.label}
                 >
                   <svg
@@ -45,7 +44,7 @@ const Footer: FC<FooterProps> = ({ content }) => {
                 <Link
                   key={link.id}
                   to={link.url}
-                  className="text-gray-400 hover:text-red-400 transition duration-300"
+                  className="text-gray-400 hover:text-gray-100 transition duration-300"
                 >
                   {link.text}
                 </Link>
@@ -57,7 +56,7 @@ const Footer: FC<FooterProps> = ({ content }) => {
           {content.email && (
             <a
               href={`mailto:${content.email}`}
-              className="text-gray-400 hover:text-red-400 transition duration-300"
+              className="text-gray-400 hover:text-gray-100 transition duration-300"
             >
               {content.email}
             </a>

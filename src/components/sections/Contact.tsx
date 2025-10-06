@@ -24,7 +24,7 @@ export const Contact: FC<ContactProps> = ({ content }) => {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-500 transition duration-300"
+                className="hover:text-gray-200 transition duration-300"
               >
                 <i className={social.icon}></i>
               </a>

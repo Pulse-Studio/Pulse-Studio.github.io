@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projectsContent } from '../data/content';
 
+const MotionLink = motion(Link);
+
 export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = projectsContent.projects.find(p => p.id === id);
@@ -21,7 +23,7 @@ export const ProjectPage: FC = () => {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl font-bold mb-8">Проект не найден</h1>
-        <Link to="/" className="text-green-400 hover:text-green-500">
+        <Link to="/" className="text-gray-300 hover:text-white">
           Вернуться на главную
         </Link>
       </div>
@@ -58,7 +60,7 @@ export const ProjectPage: FC = () => {
         <div className="max-w-6xl mx-auto">
           <Link 
             to="/" 
-            className="text-gray-400 hover:text-red-400 mb-8 inline-block transition-colors duration-300"
+            className="text-gray-400 hover:text-gray-100 mb-8 inline-block transition-colors duration-300"
           >
             ← Вернуться на главную
           </Link>
@@ -70,33 +72,66 @@ export const ProjectPage: FC = () => {
               
               {project.links && (
                 <div className="flex space-x-6">
-                  {project.links.map((link, index) => (
-                    <motion.a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="store-button px-8 py-4 rounded-lg text-lg font-medium hover-glow flex items-center"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {link.icon && (
-                        <img
-                          src={link.icon}
-                          alt={link.platform}
-                          className="w-8 h-8 mr-2"
-                        />
-                      )}
-                      {link.platform.charAt(0).toUpperCase() + link.platform.slice(1)}
-                    </motion.a>
-                  ))}
+                  {project.links.map((link, index) => {
+                    const isDownload = link.platform === 'download';
+                    const isInternal = link.platform === 'page';
+                    const isExternal = link.external ?? (!isDownload && !isInternal);
+                    const label =
+                      link.label ??
+                      (isDownload
+                        ? 'Скачать'
+                        : isInternal
+                        ? 'Подробнее'
+                        : link.platform);
+
+                    const iconNode = link.icon
+                      ? typeof link.icon === 'string' && link.icon.startsWith('http')
+                        ? (
+                            <img src={link.icon} alt={label} className="w-6 h-6 mr-2" />
+                          )
+                        : (
+                            <span className="text-base mr-2">{link.icon}</span>
+                          )
+                      : null;
+
+                    if (isInternal) {
+                      return (
+                        <MotionLink
+                          key={index}
+                          to={link.url}
+                          className="store-button px-8 py-4 rounded-lg text-lg font-medium hover-glow flex items-center"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {iconNode}
+                          {label}
+                        </MotionLink>
+                      );
+                    }
+
+                    return (
+                      <motion.a
+                        key={index}
+                        href={link.url}
+                        target={isExternal ? '_blank' : undefined}
+                        rel={isExternal ? 'noopener noreferrer' : undefined}
+                        download={isDownload}
+                        className="store-button px-8 py-4 rounded-lg text-lg font-medium hover-glow flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {iconNode}
+                        {label}
+                      </motion.a>
+                    );
+                  })}
                 </div>
               )}
             </motion.div>
             
             <motion.div 
               variants={itemVariants}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
               <img
@@ -119,10 +154,10 @@ export const ProjectPage: FC = () => {
                 {project.features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="feature-card p-6 rounded-lg bg-red-900/10 hover:bg-red-900/20 transition-all duration-300"
+                    className="feature-card p-6 rounded-lg bg-white/5 hover:bg-white/10 transition-all duration-300"
                     variants={itemVariants}
                   >
-                    <h3 className="text-xl font-bold mb-4 text-red-400">
+                    <h3 className="text-xl font-semibold mb-4 text-white">
                       {feature.title}
                     </h3>
                     <p className="text-gray-300">{feature.description}</p>

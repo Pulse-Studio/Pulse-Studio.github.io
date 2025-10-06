@@ -30,13 +30,13 @@
   
   /* Добавляем стили для кнопок */
   .store-button {
-    @apply bg-red-900 hover:bg-red-800 transition-all duration-300;
-    @apply shadow-lg shadow-red-900/30 hover:shadow-red-800/50;
+    @apply bg-gray-900 hover:bg-gray-800 transition-all duration-300;
+    @apply shadow-lg shadow-black/40 hover:shadow-black/60;
   }
   
   /* Стили для фиксированного навбара */
   .navbar-fixed {
     @apply fixed top-0 left-0 right-0 z-50;
     @apply backdrop-blur-md bg-dark-bg/90;
-    @apply border-b border-red-900/20;
+    @apply border-b border-white/10;
   }

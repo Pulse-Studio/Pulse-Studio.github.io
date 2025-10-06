@@ -18,7 +18,7 @@ export const MinecraftParticles: FC<MinecraftParticlesProps> = ({ count = 50 }) 
     // Создаем частицы
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
-      particle.className = 'absolute w-2 h-2 bg-green-400 opacity-70';
+  particle.className = 'absolute w-2 h-2 bg-white/60 opacity-60';
       particle.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'; // Квадратная форма
       
       // Случайные начальные позиции

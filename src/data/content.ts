@@ -98,7 +98,7 @@ export const aboutContent: AboutContent = {
             // @ts-ignore
             platform: 'Загрузить',
             url: '/0.11.5.7z',
-            icon: '/download.png',
+            icon: '📦',
             label: 'Скачать билд'
           }
         ],
