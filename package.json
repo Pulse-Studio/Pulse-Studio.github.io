@@ -21,6 +21,7 @@
     "pulse-studio": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.0.1",
     "three": "^0.180.0"
   },

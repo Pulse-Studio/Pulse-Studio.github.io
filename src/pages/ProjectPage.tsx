@@ -1,9 +1,11 @@
 import { FC, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { projectsContent } from '../data/content';
 
 const MotionLink = motion(Link);
+const siteUrl = 'https://pulse-studio.github.io';
 
 export const ProjectPage: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -49,8 +51,44 @@ export const ProjectPage: FC = () => {
     }
   };
 
+  const canonicalUrl = `${siteUrl}/${project.id}`;
+
   return (
     <div className="pt-32 pb-20">
+      <Helmet>
+        <title>{`${project.title} — Pulse Studio`}</title>
+        <meta name="description" content={project.description} />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={`${project.title} — Pulse Studio`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={`${siteUrl}${project.image}`} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} — Pulse Studio`} />
+        <meta name="twitter:description" content={project.description} />
+        <meta name="twitter:image" content={`${siteUrl}${project.image}`} />
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'VideoGame',
+            name: project.title,
+            url: canonicalUrl,
+            image: `${siteUrl}${project.image}`,
+            description: project.description,
+            operatingSystem: 'Web',
+            genre: project.tags,
+            author: {
+              '@type': 'Organization',
+              name: 'Pulse Studio',
+              url: siteUrl,
+            },
+          })}
+        </script>
+      </Helmet>
       <motion.div 
         className="container mx-auto px-4"
         variants={containerVariants}

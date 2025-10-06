@@ -4,9 +4,12 @@ import App from './App';
 import './index.css';
 import './styles/animations.css';
 import './styles/hero.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );
