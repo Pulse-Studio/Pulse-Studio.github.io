@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        try {
+          sessionStorage.redirectPath =
+            window.location.pathname + window.location.search + window.location.hash;
+        } catch (error) {
+          console.warn('Unable to persist redirect path for SPA fallback.', error);
+        }
+        window.location.replace('/');
+      })();
+    </script>
+  </body>
+</html>
