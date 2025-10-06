@@ -88,15 +88,13 @@ export const aboutContent: AboutContent = {
         tags: ['Песочница', 'ThreeJS', 'Альфа v0.11.5'],
         links: [
           {
-            // @ts-ignore
-            platform: 'Страница проекта',
+            platform: 'page',
             url: '/annihilation',
-            icon: '↗',
+            icon: '→',
             label: 'Страница проекта'
           },
           {
-            // @ts-ignore
-            platform: 'Загрузить',
+            platform: 'download',
             url: '/0.11.5.7z',
             icon: '📦',
             label: 'Скачать билд'

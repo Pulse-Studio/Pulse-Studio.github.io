@@ -150,23 +150,38 @@ export const Projects: FC<ProjectsProps> = ({ content }) => {
                             ? 'Страница проекта'
                             : link.platform);
 
+                        const iconNode =
+                          link.icon && typeof link.icon === 'string' && link.icon.startsWith('http')
+                            ? <img src={link.icon} alt={label} className="w-4 h-4" />
+                            : <span>{link.icon ?? '↘'}</span>;
+
+                        if (isProjectPage) {
+                          return (
+                            <Link
+                              key={linkIndex}
+                              to={link.url}
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
+                            >
+                              {iconNode}
+                              {label}
+                            </Link>
+                          );
+                        }
+
                         return (
-                          <Link
+                          <a
                             key={linkIndex}
-                            to={link.url}
+                            href={link.url}
                             onClick={(e) => e.stopPropagation()}
                             className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
                             target={isExternal ? '_blank' : undefined}
                             rel={isExternal ? 'noopener noreferrer' : undefined}
-                            download={isDownload}
+                            download={isDownload || undefined}
                           >
-                            {link.icon && typeof link.icon === 'string' && link.icon.startsWith('http') ? (
-                              <img src={link.icon} alt={label} className="w-4 h-4" />
-                            ) : (
-                              <span>{link.icon ?? '↘'}</span>
-                            )}
+                            {iconNode}
                             {label}
-                          </Link>
+                          </a>
                         );
                       })}
                     </div>

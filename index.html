@@ -5,6 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pulse Studio</title>
+    <script>
+      (function restoreSpaRoute() {
+        try {
+          const redirectPath = sessionStorage.redirectPath;
+          if (redirectPath) {
+            sessionStorage.removeItem('redirectPath');
+            const normalizedPath = redirectPath.startsWith('/')
+              ? redirectPath
+              : '/' + redirectPath;
+            window.history.replaceState(null, '', normalizedPath);
+          }
+        } catch (error) {
+          console.warn('Failed to restore SPA route from sessionStorage.', error);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
