@@ -1,244 +1,116 @@
-import { FC, useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { FC, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HeroContent } from '../types/content';
-import InteractiveParticles from './InteractiveParticles';
-import MousePulse from './MousePulse';
+import { MinecraftScene } from './MinecraftScene';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface HeroProps {
   content: HeroContent;
 }
 
-const FluidBackground: FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+export const Hero: FC<HeroProps> = ({ content }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const ctx = gsap.context(() => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
-    if (!gl) return;
+      gsap.to(container, {
+        yPercent: -8,
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
 
-    // Установка размеров canvas
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    };
-    resize();
-    window.addEventListener('resize', resize);
+      const textTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top center',
+          end: 'bottom top',
+          scrub: true,
+        },
+        defaults: { ease: 'none' },
+      });
 
-    // Вершинный шейдер
-    const vertexShader = gl.createShader(gl.VERTEX_SHADER)!;
-    gl.shaderSource(vertexShader, `
-      attribute vec2 position;
-      void main() {
-        gl_Position = vec4(position, 0.0, 1.0);
-      }
-    `);
-    gl.compileShader(vertexShader);
-
-    // Фрагментный шейдер для создания эффекта жидкости
-    const fragmentShader = gl.createShader(gl.FRAGMENT_SHADER)!;
-    gl.shaderSource(fragmentShader, `
-      precision highp float;
-      uniform float time;
-      uniform vec2 resolution;
-      
-      void main() {
-        vec2 uv = gl_FragCoord.xy / resolution.xy;
-        
-        // Создаем несколько слоев волн
-        float wave1 = sin(uv.x * 10.0 + time) * 0.5 + 0.5;
-        float wave2 = sin(uv.y * 8.0 - time * 1.5) * 0.5 + 0.5;
-        float wave3 = sin((uv.x + uv.y) * 5.0 + time * 0.7) * 0.5 + 0.5;
-        
-        // Смешиваем цвета
-        vec3 color1 = vec3(0.5, 0.0, 0.0); // темно-красный
-        vec3 color2 = vec3(0.8, 0.0, 0.0); // красный
-        vec3 color3 = vec3(0.3, 0.0, 0.0); // еще более темный красный
-        
-        vec3 finalColor = mix(
-          mix(color1, color2, wave1),
-          color3,
-          wave2 * wave3
+      if (titleRef.current) {
+        textTimeline.fromTo(
+          titleRef.current,
+          { opacity: 1, y: 0 },
+          { opacity: 0.4, y: -24 }
         );
-        
-        gl_FragColor = vec4(finalColor, 0.5);
       }
-    `);
-    gl.compileShader(fragmentShader);
 
-    // Создаем программу
-    const program = gl.createProgram()!;
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
-    gl.useProgram(program);
+      if (subtitleRef.current) {
+        textTimeline.fromTo(
+          subtitleRef.current,
+          { opacity: 1, y: 0 },
+          { opacity: 0.3, y: -20 },
+          0
+        );
+      }
 
-    // Создаем буфер для квадрата, заполняющего экран
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-      gl.STATIC_DRAW
-    );
+      if (ctaRef.current) {
+        textTimeline.fromTo(
+          ctaRef.current,
+          { opacity: 1, y: 0 },
+          { opacity: 0.2, y: -16 },
+          0
+        );
+      }
 
-    // Получаем местоположение атрибутов и uniform-переменных
-    const position = gl.getAttribLocation(program, 'position');
-    const timeLocation = gl.getUniformLocation(program, 'time');
-    const resolutionLocation = gl.getUniformLocation(program, 'resolution');
+      if (hintRef.current) {
+        textTimeline.fromTo(
+          hintRef.current,
+          { opacity: 1 },
+          { opacity: 0, y: -10 },
+          0
+        );
+      }
+    }, containerRef);
 
-    gl.enableVertexAttribArray(position);
-    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-
-    // Анимационный цикл
-    let startTime = Date.now();
-    const render = () => {
-      const time = (Date.now() - startTime) / 1000;
-      
-      gl.uniform1f(timeLocation, time);
-      gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-      
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      requestAnimationFrame(render);
-    };
-    render();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
+    return () => ctx.revert();
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ mixBlendMode: 'overlay' }}
-    />
-  );
-};
-
-export const Hero: FC<HeroProps> = ({ content }) => {
-  const [currentText, setCurrentText] = useState(0);
-  const isLastText = currentText === content.texts.length - 1;
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentText((prev) => (prev + 1) % content.texts.length);
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, [content.texts.length]);
-
-  const textVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: { 
-        duration: isLastText ? 0.8 : 0.5,
-        ease: isLastText ? "easeOut" : "easeInOut"
-      }
-    },
-    exit: { 
-      opacity: 0, 
-      y: -20,
-      transition: { 
-        duration: 0.3 
-      }
-    }
-  };
-
-  const glowVariants = {
-    initial: { 
-      textShadow: "0 0 0px #ff0000" 
-    },
-    animate: {
-      textShadow: [
-        "0 0 5px #ff0000, 0 0 15px #ff0000",
-        "0 0 10px #ff0000, 0 0 30px #ff0000",
-        "0 0 5px #ff0000, 0 0 15px #ff0000"
-      ],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "reverse"
-      }
-    }
-  };
+  const displayText = content.texts[content.texts.length - 1] ?? content.texts[0];
 
   return (
     <section className="h-screen flex items-center justify-center text-center relative overflow-hidden bg-dark-bg">
-      {/* Анимированный фон */}
-      <FluidBackground />
-      
-      {/* TODO: Interactive Particles Layer 
-      <InteractiveParticles />
-      <MousePulse />
-      */}
-      {/* Градиентный оверлей */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-b from-red-900/20 to-dark-bg"
-        animate={{
-          opacity: [0.2, 0.3, 0.2],
-          transition: {
-            duration: 3,
-            repeat: Infinity,
-            repeatType: "reverse"
-          }
-        }}
-      />
+      {/* ThreeJS интерактивная сцена с кубиками */}
+      <MinecraftScene />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
       {/* Основной контент */}
-      <div className="relative z-10 px-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentText}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            className="text-6xl font-bold mb-6 text-white"
-          >
-            {isLastText ? (
-              <motion.div
-                variants={glowVariants}
-                initial="initial"
-                animate="animate"
-                className="tracking-wider"
-                dangerouslySetInnerHTML={{ __html: content.texts[currentText] }}
-              />
-            ) : (
-              <div dangerouslySetInnerHTML={{ __html: content.texts[currentText] }} />
-            )}
-          </motion.div>
-        </AnimatePresence>
+      <div ref={containerRef} className="relative z-20 px-6 py-10 bg-black/35 backdrop-blur rounded-2xl mx-4 max-w-3xl">
+        <h1
+          ref={titleRef}
+          className="text-4xl md:text-5xl font-semibold mb-6 text-white"
+          dangerouslySetInnerHTML={{ __html: displayText }}
+        />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="text-xl mb-8 text-white"
-        >
+        <p ref={subtitleRef} className="text-lg text-gray-200 mb-8">
           {content.subtitle}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
-        >
+        <div className="flex justify-center">
           <Link
+            ref={ctaRef}
             to={content.ctaButton.link}
-            className="inline-block bg-red-900 hover:bg-red-800 px-8 py-3 rounded-full 
-                     text-lg text-white transition-all duration-300 
-                     hover:shadow-lg hover:shadow-red-500/50"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900/80 text-white border border-white/20 rounded-full transition-colors duration-300 hover:bg-gray-800"
           >
             {content.ctaButton.text}
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

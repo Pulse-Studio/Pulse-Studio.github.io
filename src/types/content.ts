@@ -42,10 +42,12 @@ export interface ContactContent {
 }
 
 export interface ProjectLink {
-    platform: 'steam' | 'itch' | 'github' | 'custom';
-    url: string;
-    icon?: string;
-  }
+  platform: 'steam' | 'itch' | 'github' | 'custom' | 'download' | 'page';
+  url: string;
+  icon?: string;
+  label?: string;
+  external?: boolean;
+}
   
   export interface Project {
     id: string;

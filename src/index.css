@@ -2,14 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Utility styles */
 .hover-glow {
-  @apply transition-all duration-300;
+  @apply transition-colors duration-300;
 }
 
 .hover-glow:hover {
-  @apply shadow-lg shadow-red-500/50;
+  @apply shadow-lg shadow-white/10;
 }
 
-.card-gradient {
-  @apply bg-gradient-to-br from-dark-custom to-dark-secondary;
+.card-surface {
+  @apply bg-white/5 border border-white/10 rounded-xl;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }

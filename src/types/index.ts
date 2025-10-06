@@ -16,6 +16,7 @@ export interface Project {
   links?: {
     steam?: string;
     itch?: string;
+    download?: string;
   };
 }
 

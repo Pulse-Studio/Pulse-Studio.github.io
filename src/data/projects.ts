@@ -2,15 +2,14 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 'dicequest',
-    title: 'DiceQuest',
-    description: 'Рогалик с использованием игральных костей в стиле Balatro...',
-    image: '/dicequest.png',
-    tags: ['Рогалик', 'Godot Engine', 'В разработке'],
-    path: '/dicequest',
+    id: 'annihilation',
+    title: 'Annihilation',
+    description: 'Современная реализация Minecraft на ThreeJS. Строй, исследуй и выживай в бесконечном вокселном мире.',
+    image: '/annihilation.png',
+    tags: ['Песочница', 'ThreeJS', 'Альфа v0.11.5'],
+    path: '/annihilation',
     links: {
-      steam: 'https://store.steampowered.com',
-      itch: 'https://itch.io'
+      download: '/0.11.5.7z'
     }
   }
 ];

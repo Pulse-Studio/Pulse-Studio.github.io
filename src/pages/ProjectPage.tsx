@@ -21,7 +21,7 @@ export const ProjectPage: FC = () => {
     return (
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl font-bold mb-8">Проект не найден</h1>
-        <Link to="/" className="text-red-400 hover:text-red-500">
+        <Link to="/" className="text-green-400 hover:text-green-500">
           Вернуться на главную
         </Link>
       </div>
