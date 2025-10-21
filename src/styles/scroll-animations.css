@@ -1,0 +1,200 @@
+/* Scroll-driven animations styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+}
+
+/* Плавные переходы для всех анимированных элементов */
+.scroll-animated {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Оптимизация производительности */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Эффект свечения для карточек */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+  }
+}
+
+.glow-on-hover:hover {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-mesh {
+  background: 
+    radial-gradient(at 40% 20%, rgba(0, 255, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(255, 0, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(255, 255, 0, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(0, 255, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(255, 0, 255, 0.15) 0px, transparent 50%);
+}
+
+/* Пиксельный эффект для текста */
+.pixel-text {
+  image-rendering: pixelated;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+/* 3D трансформации для карточек */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(-5deg) translateZ(10px);
+}
+
+/* Parallax контейнеры */
+.parallax-container {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Анимация появления с задержкой */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Световые эффекты */
+.light-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-effect::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: light-sweep 3s ease-in-out infinite;
+}
+
+@keyframes light-sweep {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Блочный эффект появления */
+@keyframes blockReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+.block-reveal {
+  animation: blockReveal 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  transform-origin: center bottom;
+}
+
+/* Стили для плавной загрузки */
+.page-transition {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+  .parallax-layer {
+    transform: none !important;
+  }
+  
+  .card-3d:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Performance hints */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Disable animations on reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

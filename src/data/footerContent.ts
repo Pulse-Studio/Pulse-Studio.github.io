@@ -1,7 +1,7 @@
 import { FooterContent } from "../types/footer";
 
 export const footerContent: FooterContent = {
-    copyrightText: '© 2024 Pulse Studio. Все права защищены.',
+    copyrightText: '© 2025 Pulse Studio.',
     links: [
       {
         id: 'privacy',
@@ -18,15 +18,15 @@ export const footerContent: FooterContent = {
       {
         id: 'github',
         icon: 'github',
-        url: 'https://github.com/your-org',
+        url: 'https://github.com/Pulse-Studio',
         label: 'GitHub'
       },
-      {
-        id: 'discord',
-        icon: 'discord',
-        url: 'https://discord.gg/your-server',
-        label: 'Discord'
-      }
+      // {
+      //   id: 'discord',
+      //   icon: 'discord',
+      //   url: 'https://discord.gg/your-server',
+      //   label: 'Discord'
+      // }
     ],
     email: 'pulseteam@ya.ru'
   };

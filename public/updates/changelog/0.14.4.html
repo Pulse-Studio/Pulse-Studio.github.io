@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.14.4 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Version 0.14.4</h1>
+
+    <div class="info-box">
+        <p><strong>Release Date:</strong> October 19, 2025</p>
+        <p><strong>Type:</strong> Critical Hotfix</p>
+    </div>
+
+    <h2>Fixed</h2>
+    <ul>
+        <li>Critical: Trees now have complete foliage at chunk boundaries</li>
+        <li>Cross-chunk leaf blocks now apply correctly to neighboring chunks</li>
+        <li>Performance optimization: removed debug logging</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+    <ul>
+        <li>Added retroactive application for cross-chunk tree blocks</li>
+        <li>Fixed chunk Y coordinate validation for leaf placement</li>
+        <li>Improved chunk generation order handling</li>
+    </ul>
+
+</body>
+</html>

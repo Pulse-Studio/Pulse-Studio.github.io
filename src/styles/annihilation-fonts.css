@@ -1,0 +1,141 @@
+/* Import pixel fonts for Annihilation page */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap');
+
+/* Apply fonts to Annihilation page only */
+.annihilation-page {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+}
+
+.annihilation-page h1,
+.annihilation-page h2,
+.annihilation-page h3,
+.annihilation-page .hero-title {
+  font-family: 'Press Start 2P', cursive, monospace;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+/* Hero title - largest heading */
+.annihilation-page .hero-title {
+  line-height: 1.3;
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+/* Main headings (h2) */
+.annihilation-page h2 {
+  line-height: 1.6;
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+/* Subheadings (h3) */
+.annihilation-page h3 {
+  line-height: 1.7;
+}
+
+/* Button and links with pixel font */
+.annihilation-page button,
+.annihilation-page .download-button,
+.annihilation-page a {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+  font-weight: 600;
+}
+
+/* Feature cards titles - smaller Press Start 2P */
+.annihilation-page .feature-card h3 {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+}
+
+/* Version buttons */
+.annihilation-page .version-active {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+  font-weight: 700;
+}
+
+/* Footer and small text */
+.annihilation-page footer {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+}
+
+/* System requirements and lists */
+.annihilation-page ul,
+.annihilation-page li,
+.annihilation-page p {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+}
+
+/* Responsive sizing for Press Start 2P headings */
+@media (min-width: 768px) {
+  .annihilation-page .text-6xl.hero-title {
+    font-size: 3.5rem;
+  }
+
+  .annihilation-page .text-8xl.hero-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .annihilation-page .text-6xl.hero-title {
+    font-size: 2rem;
+  }
+
+  .annihilation-page .text-8xl.hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Main content headings */
+.annihilation-page .text-4xl {
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+
+.annihilation-page .text-2xl {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.annihilation-page .text-xl {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Header navigation with Pixelify Sans */
+.annihilation-page header nav button,
+.annihilation-page header nav a {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+  font-weight: 600;
+}
+
+/* Logo text with Press Start 2P */
+.annihilation-page header .font-bold {
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+/* Language toggle buttons */
+.annihilation-page header button[class*="px-3"] {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+  font-weight: 700;
+}
+
+/* Hero description with better spacing */
+.annihilation-page .hero-description {
+  font-family: 'Pixelify Sans', cursive, system-ui;
+  line-height: 1.7;
+}
+
+/* Download button styling */
+.annihilation-page .download-button {
+  text-shadow: none;
+}
+
+/* Ensure good contrast and readability */
+.annihilation-page {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

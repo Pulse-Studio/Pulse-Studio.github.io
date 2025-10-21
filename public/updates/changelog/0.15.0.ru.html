@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.15.0 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Версия 0.15.0</h1>
+
+    <div class="info-box">
+        <p><strong>Дата выхода:</strong> 19 октября 2025</p>
+        <p><strong>Тип:</strong> Крупное обновление</p>
+    </div>
+
+    <h2>Что нового</h2>
+    <ul>
+        <li>Три новых биома: Тайга, Саванна и Тундра</li>
+        <li>Уникальные акации для саванны с изогнутыми стволами и раскидистой плоской кроной</li>
+        <li>Многослойная система шума для генерации климата (макро- и микромасштабы)</li>
+        <li>Деревья теперь генерируются с учётом особенностей биома</li>
+        <li>Обновлённая климатическая карта — всего 8 биомов</li>
+    </ul>
+
+    <h2>Улучшения</h2>
+    <ul>
+        <li>Разнообразие биомов увеличено в 3-4 раза</li>
+        <li>Пустыни теперь встречаются в 6 раз чаще — 12% вместо прежних 2%</li>
+        <li>Горы стали вдвое выше благодаря heightModifier 4.0 и baseHeight 30</li>
+        <li>Океаны занимают меньше места — 12% вместо 35%</li>
+        <li>Равнины стали компактнее — 25% вместо 40%</li>
+        <li>Перепад высот между биомами вырос с 27 до 140 блоков — в 5 раз эффектнее!</li>
+        <li>Все существующие биомы получили улучшенные параметры для большей визуальной выразительности</li>
+        <li>Оптимизированы переходы между биомами: радиус 1 для границы океан-суша, радиус 2 для сухопутных биомов</li>
+    </ul>
+
+    <h2>Исправления</h2>
+    <ul>
+        <li><strong>Критическое:</strong> листва деревьев теперь корректно генерируется на границах чанков при новых высотах биомов</li>
+        <li>Очередь межчанковых блоков использует правильный порядок координат (X, Y, Z)</li>
+        <li>Деревья в саванне растут только на травянистых участках (20% территории биома)</li>
+    </ul>
+
+    <h2>Технические подробности</h2>
+
+    <h3>Новые биомы</h3>
+
+    <p><strong>Тайга</strong></p>
+    <ul>
+        <li>Температура: от -0.4 до 0.0, влажность: от 0.4 до 0.8</li>
+        <li>Холодные горные хвойные леса</li>
+        <li>heightModifier: 1.5, baseHeight: 5</li>
+        <li>Высота: 70-110 блоков</li>
+    </ul>
+
+    <p><strong>Саванна</strong></p>
+    <ul>
+        <li>Температура: от 0.5 до 0.8, влажность: от 0.2 до 0.5</li>
+        <li>Тёплые засушливые равнины с акациями</li>
+        <li>heightModifier: 0.7, baseHeight: 2</li>
+        <li>80% песчаной поверхности, 20% травянистых участков</li>
+        <li>Уникальные акации с изогнутыми стволами и плоской кроной</li>
+        <li>Деревья растут только на траве (~0.6% площади биома)</li>
+    </ul>
+
+    <p><strong>Тундра</strong></p>
+    <ul>
+        <li>Температура: ниже -0.5, влажность: от 0.2 до 0.6</li>
+        <li>Промёрзшие каменистые равнины</li>
+        <li>heightModifier: 0.5, baseHeight: -5</li>
+        <li>Высота: 55-70 блоков</li>
+    </ul>
+
+    <h3>Улучшения существующих биомов</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Биом</th>
+                <th>heightModifier</th>
+                <th>baseHeight</th>
+                <th>Изменения</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Равнины</td>
+                <td>0.8 → 1.0</td>
+                <td>0</td>
+                <td>Выразительный рельеф</td>
+            </tr>
+            <tr>
+                <td>Пустыня</td>
+                <td>0.6 → 0.7</td>
+                <td>2 → 5</td>
+                <td>Более высокие дюны</td>
+            </tr>
+            <tr>
+                <td>Лес</td>
+                <td>1.0 → 1.3</td>
+                <td>1 → 3</td>
+                <td>Холмистая местность</td>
+            </tr>
+            <tr>
+                <td>Горы</td>
+                <td>2.5 → 4.0</td>
+                <td>15 → 30</td>
+                <td>Вдвое выше!</td>
+            </tr>
+            <tr>
+                <td>Океан</td>
+                <td>0.3 → 0.2</td>
+                <td>-12 → -20</td>
+                <td>Более глубокие воды</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Климатическая система</h3>
+    <ul>
+        <li>Макромасштабный шум (0.002/0.0025) формирует крупные климатические зоны</li>
+        <li>Микромасштабный шум (0.01/0.012) добавляет локальные вариации</li>
+        <li>Комбинация: 70% макро + 30% микро для реалистичного распределения</li>
+        <li>Детерминированная генерация на основе координатных seed</li>
+    </ul>
+
+    <h2>Производительность</h2>
+    <div class="info-box">
+        <p><strong>FPS:</strong> Остаётся стабильным на уровне ~60 кадров в секунду</p>
+        <p><strong>Смешивание биомов:</strong> Радиус проверки уменьшен с 3 до 2</p>
+        <p><strong>Переходы океан-суша:</strong> Оптимизированы до радиуса 1</p>
+        <p><strong>Память:</strong> Незначительное увеличение для данных новых биомов</p>
+    </div>
+
+    <h2>Распределение биомов</h2>
+    <p><strong>Было:</strong></p>
+    <ul>
+        <li>Океан: 35%</li>
+        <li>Равнины: 40%</li>
+        <li>Лес: 15%</li>
+        <li>Горы: 8%</li>
+        <li>Пустыня: 2%</li>
+    </ul>
+
+    <p><strong>Стало:</strong></p>
+    <ul>
+        <li>Равнины: 25%</li>
+        <li>Лес: 18%</li>
+        <li>Горы: 15%</li>
+        <li>Океан: 12%</li>
+        <li>Пустыня: 12%</li>
+        <li>Тайга: 8%</li>
+        <li>Саванна: 5%</li>
+        <li>Тундра: 5%</li>
+    </ul>
+
+</body>
+</html>

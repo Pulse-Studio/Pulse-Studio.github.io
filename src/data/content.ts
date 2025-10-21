@@ -7,7 +7,7 @@ export const heroContent: HeroContent = {
   subtitle: 'Мы экспериментируем с воксельной графикой, физикой и web‑технологиями, чтобы делиться свежими игровыми идеями.',
   ctaButton: {
     text: 'Познакомиться с Annihilation',
-    link: '/annihilation'
+    link: '/projects/annihilation'
   }
 };
 
@@ -83,9 +83,9 @@ export const aboutContent: AboutContent = {
       {
         id: 'annihilation',
         title: 'Annihilation',
-        description: 'Современная реализация Minecraft с использованием ThreeJS. Строй, исследуй и выживай в бесконечном вокселном мире прямо в браузере. Полная свобода творчества без ограничений.',
+        description: 'Современная реализация Minecraft с использованием ThreeJS. Строй, исследуй и выживай в бесконечном вокселном мире. Полная свобода творчества без ограничений.',
         image: '/annihilation.png',
-        tags: ['Песочница', 'ThreeJS', 'Альфа v0.11.5'],
+        tags: ['Песочница', 'ThreeJS', 'Альфа v0.16.0'],
         links: [
           {
             platform: 'page',

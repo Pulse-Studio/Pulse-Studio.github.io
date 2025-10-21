@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.14.3 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Version 0.14.3</h1>
+
+    <div class="info-box">
+        <p><strong>Release Date:</strong> October 18, 2025</p>
+        <p><strong>Type:</strong> Feature Update + Hotfix</p>
+    </div>
+
+    <h2>Added</h2>
+    <ul>
+        <li>Splash texts on main menu (100+ random messages, changes on each start)</li>
+        <li>Three types of cave systems: tunnels, chambers, and networks</li>
+        <li>Caves now properly continue across chunk boundaries</li>
+        <li>macOS platform support</li>
+    </ul>
+
+    <h2>Improved</h2>
+    <ul>
+        <li>Cave generation now creates more diverse underground structures</li>
+        <li>Better depth distribution for caves (more caves at medium depths)</li>
+        <li>Trees on chunk boundaries now render with complete foliage</li>
+        <li>Cave systems are longer and more interconnected</li>
+    </ul>
+
+    <h2>Fixed</h2>
+    <ul>
+        <li>Critical: Random leaf blocks spawning throughout the world</li>
+        <li>Critical: Tree leaves appearing in caves and at wrong heights</li>
+        <li>Trees no longer have cut-off foliage at chunk edges</li>
+        <li>Leaf placement now validates distance from tree trunk</li>
+    </ul>
+
+    <h2>Performance</h2>
+    <ul>
+        <li>FPS: Stable at ~60 (no change)</li>
+        <li>Slight increase in chunk generation time (+10-20%) for improved quality</li>
+    </ul>
+
+    <h2>Known Issues</h2>
+    <ul>
+        <li>Trees may regenerate incorrectly when loading old saved worlds (create new world recommended)</li>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+        <li>Fully compatible with existing save files</li>
+        <li>New cave types available in all newly generated chunks</li>
+        <li>Splash texts appear automatically, no configuration needed</li>
+    </ul>
+
+</body>
+</html>

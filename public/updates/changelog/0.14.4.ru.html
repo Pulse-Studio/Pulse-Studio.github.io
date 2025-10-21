@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.14.4 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Версия 0.14.4</h1>
+
+    <div class="info-box">
+        <p><strong>Дата выхода:</strong> 19 октября 2025</p>
+        <p><strong>Тип:</strong> Критические исправления</p>
+    </div>
+
+    <h2>Исправления</h2>
+    <ul>
+        <li><strong>Критическое:</strong> деревья на границах чанков теперь имеют полную крону</li>
+        <li>Блоки листвы, пересекающие чанки, корректно применяются к соседним участкам</li>
+        <li>Оптимизирована производительность за счёт удаления отладочного логирования</li>
+    </ul>
+
+    <h2>Технические подробности</h2>
+    <ul>
+        <li>Реализовано ретроактивное применение блоков деревьев, пересекающих чанки</li>
+        <li>Исправлена проверка Y-координаты чанка при размещении листвы</li>
+        <li>Улучшена обработка последовательности генерации чанков</li>
+    </ul>
+
+</body>
+</html>
