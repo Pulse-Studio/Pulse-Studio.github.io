@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.16.0 - What's New</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        em {
+            color: #06b6d4;
+            font-style: italic;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            color: #06b6d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #06b6d4;
+        }
+
+        a {
+            color: #06b6d4;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #22d3ee;
+            text-decoration: underline;
+        }
+
+        blockquote {
+            border-left: 4px solid #06b6d4;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .highlight {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 3px solid #06b6d4;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .new { background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+        .improved { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+        .fixed { background: rgba(249, 115, 22, 0.15); color: #f97316; border-color: rgba(249, 115, 22, 0.3); }
+    </style>
+</head>
+<body>
+    <h1>What's New in Version 0.16.0</h1>
+
+    <div class="highlight">
+        <p><strong>Welcome, Player!</strong> This update brings the game world to life with a complete sound system!</p>
+    </div>
+
+    <h2>The Game Finally Has Sound!</h2>
+    <p>After months of silent gameplay, the world now responds to your actions with immersive audio!</p>
+
+    <p><strong>What you'll hear:</strong></p>
+    <ul>
+        <li>Every block interaction has unique sounds</li>
+        <li>Footsteps that change based on surface type</li>
+        <li>Beautiful main menu music</li>
+        <li>Realistic 3D positional audio</li>
+    </ul>
+
+    <h2>Block Sounds - Feel Every Action</h2>
+
+    <h3><span class="badge new">NEW</span> Mining Sounds (The Most Important!)</h3>
+    
+    <p><strong>Before:</strong> Complete silence while mining. Boring!</p>
+    <p><strong>Now:</strong> You hear distinct sounds every 250ms while breaking a block!</p>
+
+    <p><strong>How it works:</strong></p>
+    <ul>
+        <li>Click and hold to mine a block</li>
+        <li>Hear rhythmic sounds as you work</li>
+        <li>Each material has its own sound</li>
+        <li>4 different sound variations keep it interesting</li>
+    </ul>
+
+    <p><strong>Try mining different materials:</strong></p>
+    <ul>
+        <li><strong>Stone</strong> - Heavy, solid crunch sounds</li>
+        <li><strong>Wood</strong> - Lighter, woody chopping sounds</li>
+        <li><strong>Sand</strong> - Soft, sandy rustling</li>
+        <li><strong>Grass</strong> - Earthy digging sounds</li>
+        <li><strong>Gravel</strong> - Rough, rocky grinding</li>
+        <li><strong>Glass</strong> - Sharp, crystalline breaking</li>
+    </ul>
+
+    <h3><span class="badge new">NEW</span> Breaking Sounds (The Satisfying Moment!)</h3>
+    <p>When you finally break through a block, you hear a satisfying destruction sound. It's the reward for your hard work!</p>
+
+    <h3><span class="badge new">NEW</span> Placing Sounds (Build with Feedback!)</h3>
+    <p>Every time you place a block, you get audio confirmation. No more wondering "did I place that block or not?"</p>
+
+    <h2>Footsteps - Your Movement Has Weight</h2>
+
+    <h3><span class="badge new">NEW</span> Different Surfaces, Different Sounds</h3>
+    <p>Walk around and listen to the ground beneath your feet!</p>
+
+    <p><strong>What you'll hear:</strong></p>
+    <ul>
+        <li><strong>Grass</strong> - Soft, muffled footsteps</li>
+        <li><strong>Stone</strong> - Hard, echoing steps</li>
+        <li><strong>Wood</strong> - Hollow, creaky sounds</li>
+        <li><strong>Sand</strong> - Soft, rustling steps</li>
+        <li><strong>Gravel</strong> - Crunchy, rough sounds</li>
+        <li><strong>Glass</strong> - Clear, tapping sounds</li>
+    </ul>
+
+    <p><strong>How it works:</strong></p>
+    <ul>
+        <li>Game automatically detects block type under your feet</li>
+        <li>Sounds play every 400ms while moving</li>
+        <li>6 variations per material for natural variety</li>
+        <li>Works while walking, running, or sprinting</li>
+    </ul>
+
+    <p><strong>Pro tip:</strong> You can identify underground caves by the sound of your footsteps changing!</p>
+
+    <h2>Menu Music - Atmospheric Ambiance</h2>
+
+    <h3><span class="badge new">NEW</span> The Main Theme</h3>
+    <p>Remember starting Minecraft and hearing that iconic music? Now we have our own!</p>
+
+    <p><strong>What happens:</strong></p>
+    <ul>
+        <li>Music starts when you open the game</li>
+        <li>Continues playing as you browse menus</li>
+        <li>Stops when you start playing (so it doesn't distract)</li>
+        <li>Plays once per session (not annoying!)</li>
+    </ul>
+
+    <p><strong>Where you'll hear it:</strong></p>
+    <ul>
+        <li>Main menu</li>
+        <li>World selection screen</li>
+        <li>Create world screen</li>
+    </ul>
+
+    <p><strong>Fun fact:</strong> The music file is 3 minutes of atmospheric goodness!</p>
+
+    <h2>3D Positional Audio - Sound Has Direction!</h2>
+
+    <h3><span class="badge improved">IMPROVED</span> What Is 3D Audio?</h3>
+    <p>Sounds now come from the correct direction! Break a block to your left? You'll hear it on the left. Behind you? You'll hear it behind you!</p>
+
+    <p><strong>Technology used:</strong></p>
+    <ul>
+        <li>HRTF (Head-Related Transfer Function) - the same tech used in VR games</li>
+        <li>Distance-based volume (far away = quieter)</li>
+        <li>Proper stereo panning (left/right positioning)</li>
+    </ul>
+
+    <p><strong>Try this:</strong></p>
+    <ul>
+        <li>Find a friend (or imagine one!)</li>
+        <li>Have them break blocks around you</li>
+        <li>Close your eyes and point to where the sound is coming from</li>
+    </ul>
+
+    <h2>Sound Settings - Control Everything</h2>
+
+    <h3><span class="badge new">NEW</span> Independent Volume Control</h3>
+    <p>Don't like loud music but want to hear blocks? No problem!</p>
+
+    <p><strong>Volume Categories:</strong></p>
+    <ul>
+        <li><strong>Master</strong> - master control for all sounds</li>
+        <li><strong>Music</strong> - music theme only</li>
+        <li><strong>Ambient</strong> - world sounds (wind, water, etc.)</li>
+        <li><strong>Blocks</strong> - block interaction sounds</li>
+        <li><strong>Entities</strong> - mob sounds</li>
+        <li><strong>Weather</strong> - rain, thunder, etc.</li>
+        <li><strong>Player</strong> - footsteps and player actions</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+    <p>For those interested:</p>
+
+    <pre><code>- Implemented Web Audio API with AudioContext
+- EventBus-based decoupled architecture
+- Clean Architecture pattern (Domain → Infrastructure → Presentation)
+- Plugin system integration (MinecraftSoundPlugin)
+- React hooks (useSoundEngine)
+- 43 unique sound events with 100+ sound files
+- Optimized audio buffer caching
+- Settings persist to localStorage
+- FPS stable at ~60 frames per second</code></pre>
+
+    <blockquote>
+        Enjoy the new sound system! The game feels much more alive and atmospheric!
+    </blockquote>
+
+</body>
+</html>

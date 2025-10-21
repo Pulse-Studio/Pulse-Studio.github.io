@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.15.0 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(6, 182, 212, 0.1);
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Version 0.15.0</h1>
+
+    <div class="info-box">
+        <p><strong>Release Date:</strong> October 19, 2025</p>
+        <p><strong>Type:</strong> Major Feature Update</p>
+    </div>
+
+    <h2>Added</h2>
+    <ul>
+        <li>Three new biomes: Taiga, Savanna, and Tundra</li>
+        <li>Savanna-specific acacia trees with curved trunks and flat umbrella-shaped canopy</li>
+        <li>Multi-scale noise system for climate generation (macro + micro scales)</li>
+        <li>Biome-specific tree generation system</li>
+        <li>Improved biome climate diagram with 8 total biomes</li>
+    </ul>
+
+    <h2>Improved</h2>
+    <ul>
+        <li>Biome distribution now 3-4x more diverse</li>
+        <li>Desert frequency increased from 2% to 12% (6x more common!)</li>
+        <li>Mountains are now twice as tall with heightModifier 4.0 and baseHeight 30</li>
+        <li>Ocean coverage reduced from 35% to 12%</li>
+        <li>Plains coverage reduced from 40% to 25%</li>
+        <li>Height variation between biomes increased from 27 blocks to 140 blocks (5x more dramatic!)</li>
+        <li>All existing biomes have enhanced parameters for better visual distinction</li>
+        <li>Biome blending optimized with different radii for Ocean-Land (1) and Land-Land (2)</li>
+    </ul>
+
+    <h2>Fixed</h2>
+    <ul>
+        <li>Critical: Tree foliage now generates correctly at chunk boundaries after biome height changes</li>
+        <li>Cross-chunk block queueing now uses correct coordinate order (X, Y, Z)</li>
+        <li>Trees in Savanna biome only generate on grass patches (20% of terrain)</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+
+    <h3>New Biomes</h3>
+
+    <p><strong>Taiga:</strong></p>
+    <ul>
+        <li>Temperature: -0.4 to 0.0, Humidity: 0.4 to 0.8</li>
+        <li>Cold mountain forests</li>
+        <li>heightModifier: 1.5, baseHeight: 5</li>
+        <li>Elevation: 70-110 blocks</li>
+    </ul>
+
+    <p><strong>Savanna:</strong></p>
+    <ul>
+        <li>Temperature: 0.5 to 0.8, Humidity: 0.2 to 0.5</li>
+        <li>Warm dry plains with acacia trees</li>
+        <li>heightModifier: 0.7, baseHeight: 2</li>
+        <li>80% sand surface, 20% grass patches</li>
+        <li>Unique curved acacia trees with flat canopy</li>
+        <li>Trees only spawn on grass patches (~0.6% of biome)</li>
+    </ul>
+
+    <p><strong>Tundra:</strong></p>
+    <ul>
+        <li>Temperature: &lt; -0.5, Humidity: 0.2 to 0.6</li>
+        <li>Frozen rocky plains</li>
+        <li>heightModifier: 0.5, baseHeight: -5</li>
+        <li>Elevation: 55-70 blocks</li>
+    </ul>
+
+    <h3>Enhanced Existing Biomes</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Biome</th>
+                <th>heightModifier</th>
+                <th>baseHeight</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Plains</td>
+                <td>0.8 → 1.0</td>
+                <td>0</td>
+                <td>More varied terrain</td>
+            </tr>
+            <tr>
+                <td>Desert</td>
+                <td>0.6 → 0.7</td>
+                <td>2 → 5</td>
+                <td>Taller dunes</td>
+            </tr>
+            <tr>
+                <td>Forest</td>
+                <td>1.0 → 1.3</td>
+                <td>1 → 3</td>
+                <td>Rolling hills</td>
+            </tr>
+            <tr>
+                <td>Mountains</td>
+                <td>2.5 → 4.0</td>
+                <td>15 → 30</td>
+                <td>2x taller peaks!</td>
+            </tr>
+            <tr>
+                <td>Ocean</td>
+                <td>0.3 → 0.2</td>
+                <td>-12 → -20</td>
+                <td>Deeper waters</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Climate System</h3>
+    <ul>
+        <li>Macro-scale noise (0.002/0.0025) for large climate zones</li>
+        <li>Micro-scale noise (0.01/0.012) for local variations</li>
+        <li>Combined: 70% macro + 30% micro for realistic distribution</li>
+        <li>Deterministic generation using coordinate-based seeds</li>
+    </ul>
+
+    <h2>Performance</h2>
+    <div class="info-box">
+        <p><strong>FPS:</strong> No impact (stable at ~60)</p>
+        <p><strong>Biome blending:</strong> Reduced check radius from 3 to 2</p>
+        <p><strong>Ocean-Land transitions:</strong> Optimized to radius 1</p>
+        <p><strong>Memory:</strong> Minimal increase for new biome data</p>
+    </div>
+
+    <h2>Biome Distribution</h2>
+    <p><strong>Before:</strong></p>
+    <ul>
+        <li>Ocean: 35%</li>
+        <li>Plains: 40%</li>
+        <li>Forest: 15%</li>
+        <li>Mountains: 8%</li>
+        <li>Desert: 2%</li>
+    </ul>
+
+    <p><strong>After:</strong></p>
+    <ul>
+        <li>Plains: 25%</li>
+        <li>Forest: 18%</li>
+        <li>Mountains: 15%</li>
+        <li>Ocean: 12%</li>
+        <li>Desert: 12%</li>
+        <li>Savanna: 10%</li>
+        <li>Taiga: 6%</li>
+        <li>Tundra: 2%</li>
+    </ul>
+
+</body>
+</html>

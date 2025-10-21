@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.16.0 - Что нового</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        em {
+            color: #06b6d4;
+            font-style: italic;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            color: #06b6d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #06b6d4;
+        }
+
+        a {
+            color: #06b6d4;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #22d3ee;
+            text-decoration: underline;
+        }
+
+        blockquote {
+            border-left: 4px solid #06b6d4;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .highlight {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 3px solid #06b6d4;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .new { background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+        .improved { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+        .fixed { background: rgba(249, 115, 22, 0.15); color: #f97316; border-color: rgba(249, 115, 22, 0.3); }
+    </style>
+</head>
+<body>
+    <h1>Что нового в версии 0.16.0</h1>
+
+    <div class="highlight">
+        <p><strong>Добро пожаловать, игрок!</strong> Это обновление оживляет игровой мир полноценной звуковой системой!</p>
+    </div>
+
+    <h2>В игре наконец появился звук!</h2>
+    <p>После месяцев тишины мир теперь откликается на ваши действия погружающим аудио!</p>
+
+    <p><strong>Что вы услышите:</strong></p>
+    <ul>
+        <li>Каждое взаимодействие с блоками имеет уникальный звук</li>
+        <li>Шаги меняются в зависимости от поверхности</li>
+        <li>Красивая музыкальная тема в главном меню</li>
+        <li>Реалистичный 3D-позиционный звук</li>
+    </ul>
+
+    <h2>Звуки блоков — почувствуйте каждое действие</h2>
+
+    <h3><span class="badge new">НОВОЕ</span> Звуки копания (самое важное!)</h3>
+    
+    <p><strong>Раньше:</strong> Полная тишина при добыче. Скучно!</p>
+    <p><strong>Теперь:</strong> Вы слышите отчётливые звуки каждые 250 мс при разрушении блока!</p>
+
+    <p><strong>Как это работает:</strong></p>
+    <ul>
+        <li>Зажмите кнопку мыши для добычи блока</li>
+        <li>Слушайте ритмичные звуки в процессе работы</li>
+        <li>Каждый материал звучит по-своему</li>
+        <li>4 различные вариации делают процесс интереснее</li>
+    </ul>
+
+    <p><strong>Попробуйте добыть разные материалы:</strong></p>
+    <ul>
+        <li><strong>Камень</strong> — тяжёлые, твёрдые звуки раскола</li>
+        <li><strong>Дерево</strong> — лёгкие звуки рубки</li>
+        <li><strong>Песок</strong> — мягкое, песчаное шуршание</li>
+        <li><strong>Трава</strong> — земляные звуки копания</li>
+        <li><strong>Гравий</strong> — грубый, каменистый скрежет</li>
+        <li><strong>Стекло</strong> — острые, кристальные звуки разбивания</li>
+    </ul>
+
+    <h3><span class="badge new">НОВОЕ</span> Звуки разрушения (удовлетворительный момент!)</h3>
+    <p>Когда вы наконец пробиваете блок, слышите приятный звук разрушения. Это награда за вашу работу!</p>
+
+    <h3><span class="badge new">НОВОЕ</span> Звуки установки (стройте с обратной связью!)</h3>
+    <p>Каждый раз при установке блока вы получаете звуковое подтверждение. Больше не нужно гадать «установил я блок или нет?»</p>
+
+    <h2>Шаги — ваше движение имеет вес</h2>
+
+    <h3><span class="badge new">НОВОЕ</span> Разные поверхности, разные звуки</h3>
+    <p>Походите и прислушайтесь к земле под ногами!</p>
+
+    <p><strong>Что вы услышите:</strong></p>
+    <ul>
+        <li><strong>Трава</strong> — мягкие, приглушённые шаги</li>
+        <li><strong>Камень</strong> — твёрдые, гулкие шаги</li>
+        <li><strong>Дерево</strong> — полые, скрипучие звуки</li>
+        <li><strong>Песок</strong> — мягкое шуршание</li>
+        <li><strong>Гравий</strong> — хрустящие, грубые звуки</li>
+        <li><strong>Стекло</strong> — чёткие, постукивающие звуки</li>
+    </ul>
+
+    <p><strong>Как это работает:</strong></p>
+    <ul>
+        <li>Игра автоматически определяет тип блока под ногами</li>
+        <li>Звуки воспроизводятся каждые 400 мс при движении</li>
+        <li>6 вариаций на материал для естественного разнообразия</li>
+        <li>Работает при ходьбе, беге и спринте</li>
+    </ul>
+
+    <p><strong>Совет:</strong> По изменению звука шагов можно определить подземные пещеры!</p>
+
+    <h2>Музыка в меню — атмосферный эмбиент</h2>
+
+    <h3><span class="badge new">НОВОЕ</span> Главная тема</h3>
+    <p>Помните, как в Minecraft звучала та культовая музыка? Теперь есть и своя!</p>
+
+    <p><strong>Что происходит:</strong></p>
+    <ul>
+        <li>Музыка начинается при запуске игры</li>
+        <li>Продолжает играть при просмотре меню</li>
+        <li>Останавливается при входе в игру (чтобы не отвлекать)</li>
+        <li>Играет один раз за сессию (не надоедает!)</li>
+    </ul>
+
+    <p><strong>Где вы её услышите:</strong></p>
+    <ul>
+        <li>Главное меню</li>
+        <li>Экран выбора мира</li>
+        <li>Экран создания мира</li>
+    </ul>
+
+    <p><strong>Интересный факт:</strong> Музыкальный файл — это 3 минуты атмосферного великолепия!</p>
+
+    <h2>3D-позиционный звук — звук имеет направление!</h2>
+
+    <h3><span class="badge improved">УЛУЧШЕНО</span> Что такое 3D-звук?</h3>
+    <p>Звуки теперь идут из правильного направления! Сломали блок слева? Вы услышите его слева. Сзади? Вы услышите его сзади!</p>
+
+    <p><strong>Используемая технология:</strong></p>
+    <ul>
+        <li>HRTF (Head-Related Transfer Function) — та же технология, что в VR-играх</li>
+        <li>Громкость зависит от расстояния (далеко = тише)</li>
+        <li>Правильное стерео-панорамирование (позиционирование лево/право)</li>
+    </ul>
+
+    <p><strong>Попробуйте:</strong></p>
+    <ul>
+        <li>Найдите друга (или представьте его!)</li>
+        <li>Пусть он ломает блоки вокруг вас</li>
+        <li>Закройте глаза и укажите, откуда идёт звук</li>
+    </ul>
+
+    <h2>Настройки звука — контролируйте всё</h2>
+
+    <h3><span class="badge new">НОВОЕ</span> Независимое управление громкостью</h3>
+    <p>Не нравится громкая музыка, но хотите слышать блоки? Без проблем!</p>
+
+    <p><strong>Категории громкости:</strong></p>
+    <ul>
+        <li><strong>Общая</strong> — мастер-контроль для всех звуков</li>
+        <li><strong>Музыка</strong> — только музыкальная тема</li>
+        <li><strong>Окружение</strong> — звуки мира (ветер, вода и т.д.)</li>
+        <li><strong>Блоки</strong> — звуки взаимодействия с блоками</li>
+        <li><strong>Существа</strong> — звуки мобов</li>
+        <li><strong>Погода</strong> — дождь, гроза и т.д.</li>
+        <li><strong>Игрок</strong> — шаги и действия игрока</li>
+    </ul>
+
+    <h2>Технические подробности</h2>
+    <p>Для интересующихся:</p>
+
+    <pre><code>- Реализован Web Audio API с AudioContext
+- Архитектура на основе EventBus для слабой связанности
+- Применён паттерн Clean Architecture (Domain → Infrastructure → Presentation)
+- Интеграция через систему плагинов (MinecraftSoundPlugin)
+- React-хуки (useSoundEngine)
+- 43 звуковых события и более 100 аудиофайлов
+- Оптимизированное кэширование аудиобуферов
+- Настройки сохраняются в localStorage
+- FPS остаётся стабильным на уровне ~60 кадров в секунду</code></pre>
+
+    <blockquote>
+        Наслаждайтесь новой звуковой системой! Игра стала намного живее и атмосфернее!
+    </blockquote>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.14.3 - What's New</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 3px solid #06b6d4;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .new { background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+        .improved { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+        .fixed { background: rgba(249, 115, 22, 0.15); color: #f97316; border-color: rgba(249, 115, 22, 0.3); }
+
+        blockquote {
+            border-left: 4px solid #06b6d4;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>What's New in Version 0.14.3</h1>
+
+    <div class="highlight">
+        <p><strong>Welcome, Explorer!</strong> This update brings improvements to cave exploration and forest visuals!</p>
+    </div>
+
+    <h2>Main Menu Gets More Fun</h2>
+    <p>Miss those funny yellow messages from Minecraft? They're here!</p>
+
+    <p><strong>What you'll see:</strong></p>
+    <ul>
+        <li>Random funny messages appear next to the game title</li>
+        <li>Over 100 different messages</li>
+        <li>They change every time you start the game</li>
+    </ul>
+
+    <h2>Cave Exploration Just Got Much Better</h2>
+
+    <h3><span class="badge new">NEW</span> Three Types of Caves to Discover</h3>
+
+    <p><strong>Tunnel Caves (Worm Caves)</strong></p>
+    <p>Long, winding passages that twist and turn underground. Perfect for resource gathering and creating underground bases. These are the most common type you'll find.</p>
+    <p><strong>Where to find:</strong> Y=30-80 (best at medium depths)</p>
+
+    <p><strong>Chamber Caves (The Big Rooms)</strong></p>
+    <p>Massive underground halls with high ceilings. These rare caves are breathtaking when you stumble upon them. Great for building underground cities!</p>
+    <p><strong>Where to find:</strong> Y=40-70 (rare but spectacular)</p>
+
+    <p><strong>Network Caves (The Maze)</strong></p>
+    <p>Complex interconnected systems with multiple paths crossing each other. These create natural labyrinths - don't get lost! Bring torches!</p>
+    <p><strong>Where to find:</strong> Y=20-60 (challenging to navigate)</p>
+
+    <h3><span class="badge improved">IMPROVED</span> No More Cut-Off Caves!</h3>
+    <p><strong>Before:</strong> Caves would suddenly end with a wall of stone when you crossed into a new area.</p>
+    <p><strong>Now:</strong> Caves smoothly continue from one area to another, creating natural-feeling underground systems. You can follow a tunnel for hundreds of blocks!</p>
+
+    <h3><span class="badge improved">IMPROVED</span> Better Cave Distribution</h3>
+    <ul>
+        <li><strong>Deep underground (Y=5-20):</strong> Few caves, mostly rock</li>
+        <li><strong>Medium depths (Y=30-80):</strong> LOTS of caves! Best for exploration</li>
+        <li><strong>Higher up (Y=80-120):</strong> Some caves, getting rarer</li>
+        <li><strong>Surface level (Y=120+):</strong> Almost no caves</li>
+    </ul>
+
+    <p><strong>Tip:</strong> Dig down to Y=50 for the best cave exploration experience!</p>
+
+    <h2>Forests Look Perfect Now</h2>
+
+    <h3><span class="badge fixed">FIXED</span> The Problem I Fixed</h3>
+    <p>Remember seeing trees with half their leaves missing? Or random leaf blocks floating in weird places? That's all gone!</p>
+
+    <p><strong>What was happening:</strong></p>
+    <ul>
+        <li>Trees near area boundaries had their leaves cut off</li>
+        <li>You'd see floating leaves in caves</li>
+        <li>Leaves would appear far from any tree</li>
+        <li>Forests looked unnatural and "blocky"</li>
+    </ul>
+
+    <h3><span class="badge improved">IMPROVED</span> The Solution</h3>
+    <p><strong>Now all trees look complete!</strong></p>
+    <ul>
+        <li>Full, lush canopies on every tree</li>
+        <li>No cut-off leaves at area boundaries</li>
+        <li>No random floating leaves anywhere</li>
+        <li>Forests look more natural and beautiful</li>
+    </ul>
+
+    <p><strong>Best spots to notice the difference:</strong></p>
+    <ul>
+        <li>Walk through a dense forest</li>
+        <li>Look for trees near coordinates like X=16, X=32, Z=16, Z=32</li>
+        <li>Check underground - no more random leaves in caves!</li>
+    </ul>
+
+    <h2>Mac Users Welcome!</h2>
+    <p>Good news for Mac players! The game now officially supports macOS, including the new Apple Silicon (M chips).</p>
+
+    <p><strong>What this means:</strong></p>
+    <ul>
+        <li>Download and play on your Mac</li>
+        <li>Full performance on both Intel and Apple Silicon</li>
+        <li>Same great experience as Windows</li>
+    </ul>
+
+    <h2>Performance</h2>
+    <p><strong>Don't worry, your FPS is safe!</strong></p>
+    <ul>
+        <li>Game still runs at smooth 60 FPS</li>
+        <li>World generation is slightly slower (you won't notice it)</li>
+        <li>Memory usage is basically the same</li>
+        <li>Overall experience is smoother and more polished</li>
+    </ul>
+
+    <h2>About Old Worlds</h2>
+    <p><strong>Good news:</strong> Your save files will work perfectly!</p>
+    <p><strong>Small note:</strong> Trees in old areas might look slightly different when revisited (they'll be better!). New areas will have all the new features.</p>
+    <p><strong>Recommendation:</strong> Create a new world to experience everything from the start!</p>
+
+    <blockquote>
+        Happy exploring!
+    </blockquote>
+
+</body>
+</html>

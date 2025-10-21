@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annihilation 0.16.0 - Changelog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: transparent;
+            color: #e5e5e5;
+            line-height: 1.7;
+            padding: 2rem;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06b6d4;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        em {
+            color: #06b6d4;
+            font-style: italic;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            color: #06b6d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #06b6d4;
+        }
+
+        a {
+            color: #06b6d4;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #22d3ee;
+            text-decoration: underline;
+        }
+
+        blockquote {
+            border-left: 4px solid #06b6d4;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        .highlight {
+            background: rgba(6, 182, 212, 0.1);
+            border-left: 3px solid #06b6d4;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.25rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(6, 182, 212, 0.15);
+            color: #06b6d4;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .new { background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
+        .improved { background: rgba(59, 130, 246, 0.15); color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+        .fixed { background: rgba(249, 115, 22, 0.15); color: #f97316; border-color: rgba(249, 115, 22, 0.3); }
+
+        .info-box {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-box p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Version 0.16.0</h1>
+
+    <div class="info-box">
+        <p><strong>Release Date:</strong> October 21, 2025</p>
+        <p><strong>Type:</strong> Major Feature Update</p>
+    </div>
+
+    <h2>Added</h2>
+    <ul>
+        <li>Complete 3D positional audio system with HRTF technology</li>
+        <li>Block interaction sounds (breaking, hitting, placing)</li>
+        <li>Material-specific sounds for grass, stone, wood, sand, gravel, glass</li>
+        <li>Footstep sound system with automatic surface detection</li>
+        <li>Main menu music theme</li>
+        <li>Sound category system with independent volume controls (Master, Music, Ambient, Blocks, Entities, Weather, Player)</li>
+        <li>43 unique sound events with 100+ sound files</li>
+        <li>Sound settings UI component (ready for pause menu integration)</li>
+    </ul>
+
+    <h2>Improved</h2>
+    <ul>
+        <li>Realistic 3D audio with proper directional positioning</li>
+        <li>Distance-based volume attenuation</li>
+        <li>Multiple sound variations per action (4-6 variants) for natural randomness</li>
+        <li>Optimized audio buffer caching for better performance</li>
+    </ul>
+
+    <h2>Fixed</h2>
+    <ul>
+        <li>3D audio direction now matches player orientation correctly</li>
+        <li>Menu music continues playing during menu navigation</li>
+        <li>Sound initialization timing in production builds</li>
+        <li>Asset loading paths for Electron desktop builds</li>
+        <li>Sound files properly unpacked in release builds</li>
+    </ul>
+
+    <h2>Technical Details</h2>
+    
+    <h3>Architecture</h3>
+    <ul>
+        <li>Implemented Web Audio API with AudioContext</li>
+        <li>EventBus-based decoupled architecture</li>
+        <li>Clean Architecture pattern (Domain → Infrastructure → Presentation)</li>
+        <li>Plugin system integration (MinecraftSoundPlugin)</li>
+        <li>React hooks (useSoundEngine)</li>
+    </ul>
+
+    <h3>Playback Parameters</h3>
+    <ul>
+        <li>Mining sounds play every 250ms while breaking blocks</li>
+        <li>Footstep sounds play every 400ms while moving</li>
+        <li>Settings persist to localStorage</li>
+        <li>Proper relative paths for production builds</li>
+    </ul>
+
+    <h2>Performance</h2>
+    
+    <div class="info-box">
+        <p><strong>FPS:</strong> No impact (stable at ~60)</p>
+        <p><strong>Memory:</strong> Efficient audio buffer caching</p>
+        <p><strong>Build size:</strong> +15MB for sound assets</p>
+    </div>
+
+    <h2>Notes</h2>
+    <ul>
+        <li>Sound Settings panel implemented but not yet integrated into pause menu</li>
+        <li>Music plays once per session in menu screens</li>
+        <li>All sounds stop when entering gameplay (except footsteps and block interactions)</li>
+        <li>Compatible with existing save files</li>
+    </ul>
+
+    <blockquote>
+        This version adds a complete sound system that significantly improves the gaming experience and immersion in the game world.
+    </blockquote>
+
+</body>
+</html>
